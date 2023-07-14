@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
     // Consulter les produits non pas par leur id
@@ -25,4 +24,13 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
     @Query("SELECT p FROM Produit p WHERE p.categorie = ?1")
     List<Produit> findByCategorie (Categorie categorie);
+
+    //Interroger les produits selon l'id de leur categorie
+    List<Produit> findByCategorieIdCat(Long id);
+
+    List<Produit> findByOrderByNomProduitAsc();
+
+    @Query("select p from Produit p order by p.nomProduit ASC, p.prixProduit DESC")
+    List<Produit> trierProduitsNomsPrix ();
+
 }

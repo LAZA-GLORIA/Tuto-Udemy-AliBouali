@@ -1,6 +1,7 @@
 package com.junit.TU;
 
 import com.demo.udemy.bouali.DemoUdemyBoualiApplication;
+import com.demo.udemy.bouali.domain.Categorie;
 import com.demo.udemy.bouali.domain.Produit;
 import com.demo.udemy.bouali.repository.ProduitRepository;
 import org.junit.jupiter.api.DisplayName;
@@ -69,6 +70,54 @@ class ProduitsApplicationTests {
     public void testFindByNomProduitContains() {
         List<Produit> prods = produitRepository.findByNomProduitContains("E");
         System.out.println(prods);
+    }
+
+    @Test
+    public void testFindByNomPrix() {
+        List<Produit> prods = produitRepository.findByNomPrix("PC Dell", 1000.0);
+        for (Produit p : prods) {
+            System.out.println(prods);
+        }
+    }
+
+    @Test
+    public void testfindByCategorie()
+    {
+        Categorie cat = new Categorie();
+        cat.setIdCat(1L);
+        List<Produit> prods = produitRepository.findByCategorie(cat);
+        for (Produit p : prods)
+        {
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void findByCategorieIdCat()
+    {
+        List<Produit> prods = produitRepository.findByCategorieIdCat(2L);
+        for (Produit p : prods) {
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void testfindByOrderByNomProduitAsc() {
+        List<Produit> prods = produitRepository.findByOrderByNomProduitAsc();
+        for (Produit p : prods)
+        {
+            System.out.println(p);
+        }
+    }
+
+    @Test
+    public void testTrierProduitsNomsPrix()
+    {
+        List<Produit> prods = produitRepository.trierProduitsNomsPrix();
+        for (Produit p : prods)
+        {
+            System.out.println(p);
+        }
     }
 
 

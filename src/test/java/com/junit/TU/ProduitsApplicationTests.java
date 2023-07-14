@@ -32,7 +32,7 @@ class ProduitsApplicationTests {
 
     @Test
     public void testFindProduit() {
-        Produit p = produitRepository.findById(1L)
+        Produit p = produitRepository.findById(3L)
                 .orElseThrow(() -> new RuntimeException("Produit non trouvé"));
         System.out.println(p);
     }
@@ -58,6 +58,19 @@ class ProduitsApplicationTests {
             System.out.println(p);
         }
     }
+
+    @Test
+    public void testFindByNomProduit() {
+        List<Produit> prods = produitRepository.findByNomProduit("PC Dell");
+        System.out.println(prods);
+    }
+
+    @Test
+    public void testFindByNomProduitContains() {
+        List<Produit> prods = produitRepository.findByNomProduitContains("E");
+        System.out.println(prods);
+    }
+
 
 
 }

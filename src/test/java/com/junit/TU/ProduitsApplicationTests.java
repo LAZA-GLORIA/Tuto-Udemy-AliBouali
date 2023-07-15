@@ -1,9 +1,9 @@
 package com.junit.TU;
 
-import com.demo.udemy.bouali.DemoUdemyBoualiApplication;
-import com.demo.udemy.bouali.domain.Categorie;
-import com.demo.udemy.bouali.domain.Produit;
-import com.demo.udemy.bouali.repository.ProduitRepository;
+import com.demo.udemy.fsapp.DemoUdemySpringFullStackApplication;
+import com.demo.udemy.fsapp.domain.Categorie;
+import com.demo.udemy.fsapp.domain.Produit;
+import com.demo.udemy.fsapp.repository.ProduitRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Date;
 import java.util.List;
 
-@SpringBootTest(classes = DemoUdemyBoualiApplication.class)
+@SpringBootTest(classes = DemoUdemySpringFullStackApplication.class)
 class ProduitsApplicationTests {
 
     // L'injection de dépendance ou Inversion de controle Ioc

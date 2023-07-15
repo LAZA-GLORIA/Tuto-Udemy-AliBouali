@@ -5,7 +5,9 @@ import com.demo.udemy.bouali.domain.Produit;
 import com.demo.udemy.bouali.repository.ProduitRepository;
 import com.demo.udemy.bouali.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

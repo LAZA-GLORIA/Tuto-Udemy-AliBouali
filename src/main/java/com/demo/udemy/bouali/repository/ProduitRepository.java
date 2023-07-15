@@ -2,13 +2,18 @@ package com.demo.udemy.bouali.repository;
 
 import com.demo.udemy.bouali.domain.Categorie;
 import com.demo.udemy.bouali.domain.Produit;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
+@RepositoryRestResource(path = "rest")
 public interface ProduitRepository extends JpaRepository<Produit, Long> {
+
+    List<Produit> findAll();
 
     // Consulter les produits non pas par leur id
     // mais par un autre attribut non clé comme le nom
@@ -31,6 +36,6 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
     List<Produit> findByOrderByNomProduitAsc();
 
     @Query("select p from Produit p order by p.nomProduit ASC, p.prixProduit DESC")
-    List<Produit> trierProduitsNomsPrix ();
+    List<Produit> trierProduitsNomsPrix();
 
 }

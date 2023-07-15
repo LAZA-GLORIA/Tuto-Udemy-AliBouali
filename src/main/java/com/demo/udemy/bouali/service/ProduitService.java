@@ -2,6 +2,8 @@ package com.demo.udemy.bouali.service;
 
 import com.demo.udemy.bouali.domain.Categorie;
 import com.demo.udemy.bouali.domain.Produit;
+import org.springframework.data.domain.Sort;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

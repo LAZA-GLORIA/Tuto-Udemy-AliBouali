@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+// Trier tous les produits
+// GET / http://localhost:8080/rest?sort=nomProduit,asc ou http://localhost:8080/rest?sort=nomProduit,desc
+// GET / http://localhost:8080/rest?size=3&page1
+// GET / http://localhost:8080/rest?size=3&page0&sort=prixProduit,asc
+// GET / http://localhost:8080/rest/search Affiche la liste de toutes les URL possibles
 @RestController
 @RequestMapping("/rest") //Pour accéder aux méthodes et services de cette classe on doit taper dans l'url de notre site
 @CrossOrigin // Je permet à tous les origines, les adresses de consommer ces webservices

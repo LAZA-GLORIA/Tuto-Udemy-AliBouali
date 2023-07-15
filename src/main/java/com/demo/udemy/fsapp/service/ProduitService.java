@@ -1,9 +1,7 @@
-package com.demo.udemy.bouali.service;
+package com.demo.udemy.fsapp.service;
 
-import com.demo.udemy.bouali.domain.Categorie;
-import com.demo.udemy.bouali.domain.Produit;
-import org.springframework.data.domain.Sort;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.demo.udemy.fsapp.domain.Categorie;
+import com.demo.udemy.fsapp.domain.Produit;
 
 import java.util.List;
 

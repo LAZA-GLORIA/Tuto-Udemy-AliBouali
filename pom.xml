@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.tutoUdemyBouali</groupId>
-	<artifactId>demo-Udemy-Bouali</artifactId>
+	<artifactId>demo-Udemy-Angular-Spring-FS-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-Udemy-Bouali</name>
 	<description>Demo project for Spring Boot</description>

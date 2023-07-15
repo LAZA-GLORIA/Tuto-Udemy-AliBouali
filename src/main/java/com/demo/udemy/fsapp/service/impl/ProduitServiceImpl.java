@@ -1,13 +1,11 @@
-package com.demo.udemy.bouali.service.impl;
+package com.demo.udemy.fsapp.service.impl;
 
-import com.demo.udemy.bouali.domain.Categorie;
-import com.demo.udemy.bouali.domain.Produit;
-import com.demo.udemy.bouali.repository.ProduitRepository;
-import com.demo.udemy.bouali.service.ProduitService;
+import com.demo.udemy.fsapp.domain.Categorie;
+import com.demo.udemy.fsapp.domain.Produit;
+import com.demo.udemy.fsapp.repository.ProduitRepository;
+import com.demo.udemy.fsapp.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 

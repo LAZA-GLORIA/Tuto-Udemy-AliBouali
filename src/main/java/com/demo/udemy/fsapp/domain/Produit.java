@@ -1,4 +1,4 @@
-package com.demo.udemy.bouali.domain;
+package com.demo.udemy.fsapp.domain;
 
 import jakarta.persistence.*;
 

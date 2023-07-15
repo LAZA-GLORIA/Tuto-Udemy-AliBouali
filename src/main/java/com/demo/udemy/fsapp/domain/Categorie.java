@@ -1,8 +1,7 @@
-package com.demo.udemy.bouali.domain;
+package com.demo.udemy.fsapp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,5 +1,6 @@
 package com.demo.udemy.bouali.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
@@ -27,6 +28,8 @@ public class Categorie {
         this.produits = produits;
     }
 
+    // Pour eviter les references croisées
+    @JsonIgnore // Je demande à spring de ne pas afficher la liste des produit inclus dans Categorie pour eviter les boucles infinies
     @OneToMany(mappedBy = "categorie")
     private List<Produit> produits;
 

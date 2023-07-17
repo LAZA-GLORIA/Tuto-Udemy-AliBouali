@@ -5,7 +5,7 @@ import com.demo.udemy.fsapp.domain.Produit;
 
 import java.util.List;
 
-// Je declare mes methode dans l'interface et je l'implemente dans l'implementation
+// Je declare mes methodes dans l'interface et je l'implemente dans l'implementation
 public interface ProduitService {
     Produit saveProduit(Produit p);
     Produit updateProduit(Produit p);

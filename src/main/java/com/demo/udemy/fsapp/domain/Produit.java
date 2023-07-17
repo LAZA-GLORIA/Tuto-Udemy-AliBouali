@@ -19,6 +19,14 @@ public class Produit {
     private Double prixProduit;
     private Date dateCreation;
 
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
+    }
+
     @ManyToOne
     private Categorie categorie;
 
@@ -26,11 +34,12 @@ public class Produit {
         super();
     }
 
-    public Produit(String nomProduit, Double prixProduit, Date dateCreation) {
+    public Produit(String nomProduit, Double prixProduit, Date dateCreation, Categorie categorie) {
         super();
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.dateCreation = dateCreation;
+        this.categorie = categorie;
     }
 
     public Long getIdProduit() {

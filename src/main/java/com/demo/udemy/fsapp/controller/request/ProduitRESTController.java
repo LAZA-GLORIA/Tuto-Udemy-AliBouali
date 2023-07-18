@@ -40,13 +40,13 @@ public class ProduitRESTController {
     // qui permet de le recuperer dans le corps de la requete
     // Webservices pour créer un produit
     @RequestMapping(value="createProduit/{id}", method = RequestMethod.POST)
-    public ProduitDTO createProduit(@RequestBody Produit produit) {
-        return produitService.saveProduit(produit);
+    public ProduitDTO createProduit(@RequestBody ProduitDTO produitDTO) {
+        return produitService.saveProduit(produitDTO);
     }
 
     @RequestMapping(value="updateProduit/{id}", method = RequestMethod.PUT)
-    public Produit updateProduit(@RequestBody Produit produit) {
-        return produitService.updateProduit(produit);
+    public ProduitDTO updateProduit(@RequestBody ProduitDTO produitDTO) {
+        return produitService.updateProduit(produitDTO);
     }
 
     @RequestMapping(value="deleteProduit/{id}",method = RequestMethod.DELETE)

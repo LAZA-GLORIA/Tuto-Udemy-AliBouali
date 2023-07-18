@@ -18,15 +18,15 @@ public class ProduitServiceImpl implements ProduitService {
     ProduitRepository produitRepository;
 
     @Override
-    public ProduitDTO saveProduit(Produit p) {
-        return convertEntityToDto(produitRepository.save(p));
+    public ProduitDTO saveProduit(ProduitDTO p) {
+        return convertEntityToDto(produitRepository.save(convertDTOtoEntity(p)));
         // la methode save de repository retourne une entite
         // Donc on convertit en DTO
     }
 
     @Override
-    public Produit updateProduit(Produit p) {
-        return produitRepository.save(p);
+    public ProduitDTO updateProduit(ProduitDTO p) {
+        return convertEntityToDto(produitRepository.save(convertDTOtoEntity(p)));
     }
 
     @Override
@@ -114,11 +114,24 @@ public class ProduitServiceImpl implements ProduitService {
                 .idProduit(p.getIdProduit())
                 .nomProduit(p.getNomProduit())
                 .prixProduit(p.getPrixProduit())
-                //.categorie(p.getCategorie())
-                .nomCategorie(p.getCategorie() != null ? p.getCategorie().getNomCat() : null)
+                .categorie(p.getCategorie())
+               // .nomCategorie(p.getCategorie() != null ? p.getCategorie().getNomCat() : null)
                 .dateCreation((p.getDateCreation()))
                 .build();
 
+    }
+
+    @Override
+    public Produit convertDTOtoEntity(ProduitDTO produitDTO) {
+        Produit produit = new Produit();
+        // je remplit mon produit
+        produit.setIdProduit(produitDTO.getIdProduit());
+        produit.setNomProduit(produitDTO.getNomProduit());
+        produit.setPrixProduit(produitDTO.getPrixProduit());
+        produit.setDateCreation(produitDTO.getDateCreation());
+        produit.setCategorie(produitDTO.getCategorie());
+
+        return produit;
     }
 
 }

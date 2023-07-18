@@ -19,6 +19,9 @@ public class Produit {
     private Double prixProduit;
     private Date dateCreation;
 
+    @ManyToOne
+    private Categorie categorie;
+
     public Categorie getCategorie() {
         return categorie;
     }
@@ -26,9 +29,6 @@ public class Produit {
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
-
-    @ManyToOne
-    private Categorie categorie;
 
     public Produit() {
         super();

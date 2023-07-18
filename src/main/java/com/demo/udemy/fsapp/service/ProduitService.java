@@ -8,11 +8,11 @@ import java.util.List;
 
 // Je declare mes methodes dans l'interface et je l'implemente dans l'implementation
 public interface ProduitService {
-    ProduitDTO saveProduit(Produit p);
+    ProduitDTO saveProduit(ProduitDTO p);
+    ProduitDTO updateProduit(ProduitDTO p);
     ProduitDTO getProduit(Long id);
     List<ProduitDTO> getAllProduits();
 
-    Produit updateProduit(Produit p);
     void deleteProduit(Produit p);
     void deleteProduitById(Long id);
 
@@ -26,4 +26,5 @@ public interface ProduitService {
     List<Produit> trierProduitsNomsPrix();
 
     ProduitDTO convertEntityToDto(Produit p);
+    Produit convertDTOtoEntity(ProduitDTO produitDTO);
 }

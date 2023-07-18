@@ -1,6 +1,7 @@
 package com.demo.udemy.fsapp.controller.request;
 
 import com.demo.udemy.fsapp.domain.Produit;
+import com.demo.udemy.fsapp.dto.ProduitDTO;
 import com.demo.udemy.fsapp.service.ProduitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +23,7 @@ public class ProduitRESTController {
 
     // Webservices permettant de consulter tous les produits
     @RequestMapping(value="/produits", method=RequestMethod.GET)
-    List<Produit> getAllProduits() {
+    List<ProduitDTO> getAllProduits() {
         return produitService.getAllProduits();
         //return produitService.findByOrderByNomProduitAsc();
     }
@@ -31,7 +32,7 @@ public class ProduitRESTController {
     //PathVariable : permet d'affecter l'id de l'url dans l'id en parametre de type Long
     // Webservices permettant de CONSULTER un produit via son id
     @RequestMapping(value="getone/{id}",method = RequestMethod.GET)
-    public Produit getProduitById(@PathVariable("id") Long id) {
+    public ProduitDTO getProduitById(@PathVariable("id") Long id) {
         return produitService.getProduit(id);
     }
 
@@ -39,7 +40,7 @@ public class ProduitRESTController {
     // qui permet de le recuperer dans le corps de la requete
     // Webservices pour créer un produit
     @RequestMapping(value="createProduit/{id}", method = RequestMethod.POST)
-    public Produit createProduit(@RequestBody Produit produit) {
+    public ProduitDTO createProduit(@RequestBody Produit produit) {
         return produitService.saveProduit(produit);
     }
 

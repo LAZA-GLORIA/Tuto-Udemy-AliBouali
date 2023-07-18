@@ -114,7 +114,9 @@ public class ProduitServiceImpl implements ProduitService {
                 .idProduit(p.getIdProduit())
                 .nomProduit(p.getNomProduit())
                 .prixProduit(p.getPrixProduit())
-                .categorie(p.getCategorie())
+                //.categorie(p.getCategorie())
+                .nomCategorie(p.getCategorie() != null ? p.getCategorie().getNomCat() : null)
+                .dateCreation((p.getDateCreation()))
                 .build();
 
     }

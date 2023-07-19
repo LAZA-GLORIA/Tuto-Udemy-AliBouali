@@ -6,6 +6,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
+import org.modelmapper.ModelMapper;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 @EntityScan("com.demo.udemy.fsapp.domain")
@@ -23,4 +26,9 @@ public class DemoUdemySpringFullStackApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		repositoryRestConfiguration.exposeIdsFor(Produit.class);
 	}
+
+	@Bean
+	public ModelMapper modelMapper() {
+			return new ModelMapper();
+		}
 }

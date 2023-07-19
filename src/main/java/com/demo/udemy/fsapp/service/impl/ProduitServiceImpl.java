@@ -5,6 +5,9 @@ import com.demo.udemy.fsapp.domain.Produit;
 import com.demo.udemy.fsapp.dto.ProduitDTO;
 import com.demo.udemy.fsapp.repository.ProduitRepository;
 import com.demo.udemy.fsapp.service.ProduitService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
+import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +19,9 @@ public class ProduitServiceImpl implements ProduitService {
 
     @Autowired
     ProduitRepository produitRepository;
+
+    @Autowired
+    ModelMapper modelMapper;
 
     @Override
     public ProduitDTO saveProduit(ProduitDTO p) {
@@ -99,6 +105,13 @@ public class ProduitServiceImpl implements ProduitService {
 
     @Override
     public ProduitDTO convertEntityToDto(Produit p) {
+
+        //Preciser la strategie de matching de correspondance
+        // afin que l'on puisse mapper les elements de categorie quand on les rajoute
+        // LOOSE veut dire qu'il ne va pas faire la precision stricte des attributs
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+        ProduitDTO produitDTO = modelMapper.map(p, ProduitDTO.class);
+        return produitDTO;
         // On instancie un nouveau produit DTO et on le remplit avec les attributs de p
        /* ProduitDTO produitDTO = new ProduitDTO();
         produitDTO.setIdProduit(p.getIdProduit());
@@ -110,6 +123,8 @@ public class ProduitServiceImpl implements ProduitService {
         // Design pattern Builder qui nous offre des méthodes et pour chaque attribut j'aurais des méthodes
         // Je recupere les valeurs des attributs à partir du produit p
         // après avoir donné les valeurs je lance la méthode build
+
+        /*
         return ProduitDTO.builder()
                 .idProduit(p.getIdProduit())
                 .nomProduit(p.getNomProduit())
@@ -118,11 +133,19 @@ public class ProduitServiceImpl implements ProduitService {
                // .nomCategorie(p.getCategorie() != null ? p.getCategorie().getNomCat() : null)
                 .dateCreation((p.getDateCreation()))
                 .build();
+                */
 
     }
 
     @Override
     public Produit convertDTOtoEntity(ProduitDTO produitDTO) {
+
+        // Je remplis mon objet produit avec les produitDTO avec les ModelMapper
+        Produit produit = new Produit();
+        produit = modelMapper.map(produitDTO, Produit.class);
+
+        return produit;
+        /*
         Produit produit = new Produit();
         // je remplit mon produit
         produit.setIdProduit(produitDTO.getIdProduit());
@@ -132,6 +155,7 @@ public class ProduitServiceImpl implements ProduitService {
         produit.setCategorie(produitDTO.getCategorie());
 
         return produit;
+         */
     }
 
 }
